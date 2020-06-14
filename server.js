@@ -6,7 +6,6 @@ require('./App/Config/config');
 require('./App/Config/connection');
 
 
-var Auth = require('./App/Middleware/Auth');
 
 app.use(bodyParser.json({
 	limit: '50mb'
