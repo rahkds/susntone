@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="test1">
+	<head>
+		<title ng-bind="title">My App</title>
+		<script src="angular_dependency.js"></script>
+		<script src="angular_controllers.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/custom.css">
+		<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+		
+	</head>
+	<body>
+		<header ng-include="'partials/header1.html'"></header>
+		<div ng-view></div>
+	</body>
+</html>

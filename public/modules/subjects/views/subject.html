@@ -1,0 +1,143 @@
+<div>
+	<h1> Subject</h1>
+
+
+	<div>
+
+        <div class="float-right">
+	      <div class="">
+	         <button class="btn btn-primary click-add" ng-click="create_subject_popup_show()">Create Subject</button>
+	      </div>
+        </div>
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Subject Name</th>
+                    <th>Desc</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in subjects track by $index">
+                    <td>
+                        <div> {{$index+1}} </div>
+                    </td>
+                    <td>
+                        {{data.name}}
+                    </td>
+                    <td>
+                        {{data.desc}}
+                    </td>
+                    <td>
+                        {{data.created_at | date : medium}}
+                    </td>
+
+                    <td>
+                      <a href="javascript:void(0)" ng-click="update_subject_popup_show(data)">Edit</a> / 
+                      <a href="javascript:void(0)" ng-click="deleteSubject(data.id)">Delete</a>
+                    </td>                    
+
+                </tr>
+                <tr ng-if="totalFaculty == 0">
+                    <td colspan="6" class="no-data-available"><span><strong>No record found</strong></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+	</div>
+
+
+
+
+
+	<div id="addSubjectDlg" class="modal fade" tabindex="-1" role="dialog" >
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+					<h4 class="modal-title">Add Subject</h4>
+				</div>
+				<div class="modal-body">
+					<div class="my-form">
+						<div class="padd25">
+							<div>
+							<form name="add_subject_form" novalidate="" ng-submit="add_subject()">
+							<div class="form-row">
+								<div class="form-group">
+									<div class="input-label">Name*</div>
+									<input type="text" class="textbox form-control" ng-required="true" name="faculty_name" id="" ng-model="add_subject_field.name"/>
+									<span class="error" ng-show="add_subject_form.faculty_name.$error.required && add_subject_form.faculty_name.$touched">Please enter name</span>
+								</div>
+								<div class="form-group">
+									<div class="input-label">Desc</div>
+									<input type="text" class="textbox form-control" ng-required="false" name="desc" id="" ng-model="add_subject_field.desc"/>
+									<span class="error" ng-show="add_subject_form.username.$error.required && add_subject_form.desc.$touched">Please enter desc</span>
+								</div>
+							</div>
+
+							<div class="form-row">	                      
+								<div class="form-group">
+									<div class="input-label">&nbsp;</div>
+									<input type="submit" ng-disabled="add_subject_form.$invalid" class="button btn btn-primary" value="Save">
+								</div>
+							</div>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+
+
+
+<div id="updateSubjectDlg" class="modal fade" tabindex="-1" role="dialog" >
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">Update Subject</h4>
+			</div>
+			<div class="modal-body">
+				<div class="my-form">
+					<div class="padd25">
+						<div>
+							<form name="update_subject_form" novalidate="" ng-submit="update_subject()">
+							<div class="form-row">
+								<div class="form-group">
+									<div class="input-label">Name*</div>
+									<input type="text" class="textbox form-control" ng-required="true" name="faculty_name" id="" ng-model="subject_update_field.name"/>
+									<span class="error" ng-show="update_subject_form.faculty_name.$error.required && update_subject_form.faculty_name.$touched">Please enter name</span>
+								</div>
+								<div class="form-group">
+									<div class="input-label">Desc</div>
+									<input type="text" class="textbox form-control" ng-required="false" name="desc" id="" ng-model="subject_update_field.desc"/>
+									<span class="error" ng-show="update_subject_form.username.$error.required && update_subject_form.desc.$touched">Please enter desc</span>
+								</div>
+							</div>
+
+							<div class="form-row">	                      
+								<div class="form-group">
+									<div class="input-label">&nbsp;</div>
+									<input type="submit" ng-disabled="update_subject_form.$invalid" class="button btn btn-primary" value="Save">
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

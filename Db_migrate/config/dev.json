@@ -1,0 +1,11 @@
+{
+	"dev": {
+		"host": "localhost",
+		"user": "root",
+		"password": "rahul",
+		"database": "sunstone",
+		"driver": "mysql",
+		"multipleStatements": true
+	},
+	"sql-file": true
+}
